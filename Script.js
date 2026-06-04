@@ -20,50 +20,21 @@ function addTask() {
     displayTasks();
 }
 
-function displayTasks() {
-    let taskList = document.getElementById("taskList");
+function editTask(index) {
+    const newText = prompt("Edit your task:", tasks[index]);
 
-    taskList.innerHTML = "";
-
-    tasks.forEach((task, index) => {
-        taskList.innerHTML += `
-            <li>
-                ${task}
-                <button onclick="deleteTask(${index})">
-                    Delete
-                </button>
-            </li>
-        `;
-    });
+    if (newText !== null && newText.trim() !== "") {
+        tasks[index] = newText.trim();
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        displayTasks();
+    }
 }
 
 function deleteTask(index) {
     tasks.splice(index, 1);
-
     localStorage.setItem("tasks", JSON.stringify(tasks));
-
     displayTasks();
 }
-document.addEventListener("click", function(e){
-
-    // DELETE
-    if(e.target.classList.contains("delete")){
-        e.target.closest(".task").remove();
-    }
-
-    // EDIT
-    if(e.target.classList.contains("edit")){
-        let taskDiv = e.target.closest(".task");
-        let taskText = taskDiv.querySelector(".task-text");
-
-        let newText = prompt("Edit your task:", taskText.innerText);
-
-        if(newText !== null && newText.trim() !== ""){
-            taskText.innerText = newText;
-        }
-    }
-
-});
 function displayTasks() {
     let taskList = document.getElementById("taskList");
 

@@ -1,4 +1,4 @@
-
+ 
 /*body{
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg,#667eea,#764ba2);
@@ -151,54 +151,180 @@ button:active {
     display:flex;
     gap:8px;
 }*/
-body{
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-h1{text-align: center;
-   font: sans-serif;
-
-}
-.container{
-    width:700px;
-    backdrop-filter:blur(15px);
-    background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.2);
-    border-radius:25px;
-    padding:30px;
-    color:white;
-    box-shadow:0 8px 32px rgba(0,0,0,.3);
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f8fafc;
 }
 
-input{
-    height: 30px;
-    width: 350px;
-}
-.input-box{
+h1 {
     text-align: center;
+    margin: 0 0 20px;
+    font-size: 2.5rem;
+    letter-spacing: 0.02em;
+    color: #e2e8f0;
+}
+
+.container {
+    width: min(680px, 92vw);
+    backdrop-filter: blur(18px);
+    background: rgba(15, 23, 42, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    padding: 32px 30px 28px;
+    box-shadow: 0 20px 80px rgba(15, 23, 42, 0.5);
+}
+
+.input-box {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 16px;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #f8fafc;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+input:focus {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.14);
+}
+
+.as {
+    min-width: 100px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 14px;
+    background: #6366f1;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease, transform 0.15s ease;
+}
+
+.as:hover {
+    background: #4f46e5;
+    transform: translateY(-1px);
+}
+
+.as:active {
+    transform: scale(0.98);
+}
+
+#taskList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 30px; */
+    background: rgba(255, 255, 255, 0.08);
+    padding: 16px 18px;
+    margin-top: 14px;
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
     
 }
-.as{
-    background-color: darkblue;
-    color: white;
-    border: 1px solid rgb(158, 156, 156);
-    border-radius: 3px;
-    height: 35px;
-    width: 80px;
+
+.task:hover {
+    background: rgba(99, 102, 241, 0.14);
+    transform: translateY(-1px);
+    box-shadow: 0 16px 35px rgba(15, 23, 42, 0.2);
 }
-.task{
-    background:rgba(255,255,255,.08);
-    padding:15px;
-    margin-top:15px;
-    border-radius:15px;
-    transition:.3s;
+
+.task-text {
+    color: #f8fafc;
+    font-size: 1rem;
+    word-break: break-word;
+    flex: 1;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+button.edit,
+button.delete {
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease, transform 0.15s ease;
+}
+
+button.edit {
+    background: rgba(99, 102, 241, 0.16);
+    color: #e0e7ff;
+}
+
+button.edit:hover {
+    background: rgba(99, 102, 241, 0.32);
+    transform: translateY(-1px);
     
 }
+
+button.delete {
+    background: rgba(248, 113, 113, 0.18);
+    color: #ffe4e6;
+}
+
+button.delete:hover {
+    background: rgba(248, 113, 113, 0.32);
+    transform: translateY(-1px);
+}
+
+@media(max-width:520px) {
+    .container {
+        padding: 24px 18px 22px;
+    }
+
+    .input-box {
+        flex-direction: column;
+    }
+
+    .as {
+        width: 100%;
+    }
+
+    .task {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+    
+
 
 .task:hover{
     transform:translateY(-5px);
